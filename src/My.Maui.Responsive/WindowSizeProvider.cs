@@ -24,10 +24,6 @@ namespace My.Maui.Responsive
 
         public event EventHandler<Size>? SizeChanged;
 
-        public Size Get() =>
-            new Size(
-                Application.Current.MainPage.Width, 
-                Application.Current.MainPage.Height);
-        
+        public Size Get() => Application.Current.MainPage.ContainerArea.Size;
     }
 }

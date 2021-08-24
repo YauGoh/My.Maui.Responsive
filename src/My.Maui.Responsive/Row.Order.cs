@@ -22,11 +22,11 @@ namespace My.Maui.Responsive
         public static int? GetOrderXl(BindableObject bindable) => (int?)bindable.GetValue(OrderXlProperty);
         public static int? GetOrderXxl(BindableObject bindable) => (int?)bindable.GetValue(OrderXxlProperty);
 
-        private static void OnOrderXsPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Xs = (int?)newValue });
-        private static void OnOrderSmPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Sm = (int?)newValue });
-        private static void OnOrderMdPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Md = (int?)newValue });
-        private static void OnOrderLgPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Lg = (int?)newValue });
-        private static void OnOrderXlPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Xl = (int?)newValue });
-        private static void OnOrderXxlPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOffset(bindable) with { Xxl = (int?)newValue });
+        private static void OnOrderXsPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Xs = (int?)newValue });
+        private static void OnOrderSmPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Sm = (int?)newValue });
+        private static void OnOrderMdPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Md = (int?)newValue });
+        private static void OnOrderLgPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Lg = (int?)newValue });
+        private static void OnOrderXlPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Xl = (int?)newValue });
+        private static void OnOrderXxlPropertyChanged(BindableObject bindable, object oldValue, object newValue) => SetOrder(bindable, GetOrder(bindable) with { Xxl = (int?)newValue });
     }
 }

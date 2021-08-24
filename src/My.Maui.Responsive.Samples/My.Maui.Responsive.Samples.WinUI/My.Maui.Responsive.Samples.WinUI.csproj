@@ -38,6 +38,7 @@
 		<PackageReference Include="Microsoft.ProjectReunion.Foundation" Version="0.8.1" />
 		<PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.1" />
 		<PackageReference Include="Microsoft.ProjectReunion.InteractiveExperiences" Version="0.8.1" NoWarn="NU1701" />
+		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>

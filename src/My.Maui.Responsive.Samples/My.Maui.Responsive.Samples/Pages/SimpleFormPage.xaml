@@ -1,0 +1,220 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:r="clr-namespace:My.Maui.Responsive;assembly=My.Maui.Responsive"
+             xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
+             x:Class="My.Maui.Responsive.Samples.Pages.SimpleFormPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             BindingContext="{x:Static vm:ViewModelLocator.SimpleFormPage}">
+
+    <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        <r:Container>
+            <r:Row>
+                <r:Container r:Row.Md="8"
+                             r:Row.OrderMd="1"
+                             r:Row.OrderXs="2"
+                             r:Row.Xs="12">
+                    <r:Row>
+                        <Label r:Row.Xs="12"
+                               Text="Checkout"
+                               class="heading" />
+
+                        <StackLayout r:Row.Sm="6"
+                                     r:Row.Xl="4"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="First Name" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="6"
+                                     r:Row.Xl="8"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="Surname" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12" class="form-group">
+                            <Label Text="Email Address" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12" class="form-group">
+                            <Label Text="Address Line 1" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12" class="form-group">
+                            <Label Text="Address Line 2" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12" class="form-group">
+                            <Label Text="Country" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="4"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="Suburb" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="4"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="State" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="4"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="Postcode" />
+                            <Entry />
+                        </StackLayout>
+
+                        <BoxView r:Row.Xs="12"
+                                 HeightRequest="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 class="separator"
+                                 Color="#5b5d68" />
+                    </r:Row>
+
+                    <r:Row>
+                        <StackLayout r:Row.Xs="12"
+                                     Orientation="Horizontal"
+                                     class="form-group">
+                            <CheckBox />
+                            <Label Text="Shipping address is the same as my billing address" />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12"
+                                     Orientation="Horizontal"
+                                     class="form-group">
+                            <CheckBox />
+                            <Label Text="Save this information for next time" />
+                        </StackLayout>
+
+                        <BoxView r:Row.Xs="12"
+                                 HeightRequest="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 class="separator"
+                                 Color="#5b5d68" />
+                    </r:Row>
+
+                    <r:Row>
+                        <Label r:Row.Xs="12"
+                               Text="Heading 1"
+                               class="heading" />
+
+                        <StackLayout r:Row.Xs="12"
+                                     Orientation="Horizontal"
+                                     class="form-group">
+                            <CheckBox />
+                            <Label Text="Credit card" />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12"
+                                     Orientation="Horizontal"
+                                     class="form-group">
+                            <CheckBox />
+                            <Label Text="Debit card" />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="12"
+                                     Orientation="Horizontal"
+                                     class="form-group">
+                            <CheckBox />
+                            <Label Text="PayPal" />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="6"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="Name on card" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Sm="6"
+                                     r:Row.Xs="12"
+                                     class="form-group">
+                            <Label Text="Credit card no." />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="3" class="form-group">
+                            <Label Text="Expiration" />
+                            <Entry />
+                        </StackLayout>
+
+                        <StackLayout r:Row.Xs="3" class="form-group">
+                            <Label Text="CVV" />
+                            <Entry />
+                        </StackLayout>
+
+                        <BoxView r:Row.Xs="12"
+                                 HeightRequest="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 class="separator"
+                                 Color="#5b5d68" />
+                    </r:Row>
+                    <r:Row>
+                        <Button r:Row.Lg="3"
+                                r:Row.Md="4"
+                                r:Row.Sm="6"
+                                r:Row.Xs="12"
+                                Text="Continue" />
+
+                        <Button r:Row.ColumnSpan="12,6,4,3" Text="Cancel" />
+                    </r:Row>
+                </r:Container>
+
+
+                <StackLayout r:Row.Md="4"
+                             r:Row.OrderMd="2"
+                             r:Row.OrderXs="1"
+                             r:Row.Xs="12">
+                    <Label Text="Details" />
+                    <Frame Padding="5,10,0,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+
+                            <Label FontAttributes="Bold" Text="Coffee" />
+                            <Label Grid.Column="1"
+                                   HorizontalTextAlignment="End"
+                                   Text="$4.20" />
+                            <Label Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   Text="Flat white, large"
+                                   TextColor="#5b5d68" />
+
+                            <BoxView Grid.Row="2"
+                                     Grid.ColumnSpan="2"
+                                     HeightRequest="1"
+                                     VerticalOptions="Center"
+                                     class="separator"
+                                     Color="#5b5d68" />
+
+                        </Grid>
+                    </Frame>
+
+                </StackLayout>
+
+            </r:Row>
+        </r:Container>
+    </ScrollView>
+</ContentPage>

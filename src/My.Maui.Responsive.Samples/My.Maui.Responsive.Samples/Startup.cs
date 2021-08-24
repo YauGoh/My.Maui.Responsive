@@ -3,6 +3,7 @@ using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Controls.Xaml;
+using My.Maui.Responsive.Samples.ViewModels;
 
 [assembly: XamlCompilationAttribute(XamlCompilationOptions.Compile)]
 
@@ -17,6 +18,10 @@ namespace My.Maui.Responsive.Samples
 				.ConfigureFonts(fonts =>
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				})
+				.ConfigureServices(services =>
+				{
+					services.AddViewModels();
 				});
 		}
 	}

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,6 +6,20 @@
     <SingleProject>true</SingleProject>
     <Nullable>enable</Nullable>
     <Authors>Yau</Authors>
+    <Description>Responsive layouts for MAUI applications</Description>
+    <PackageProjectUrl>https://github.com/YauGoh/My.Maui.Responsive</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/YauGoh/My.Maui.Responsive</RepositoryUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.1-alpha</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

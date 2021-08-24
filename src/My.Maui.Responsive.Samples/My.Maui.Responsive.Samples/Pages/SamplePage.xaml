@@ -1,57 +1,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:r="clr-namespace:My.Maui.Responsive;assembly=My.Maui.Responsive"
+             xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
              x:Class="My.Maui.Responsive.Samples.Pages.SamplePage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             BindingContext="{x:Static vm:ViewModelLocator.SamplesPage}">
 
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-        <r:Container>
-            <r:Row>
-                <Label r:Row.ColumnSpan="3" Text="1/4" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="3" Text="1/4" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="6" Text="1/2" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" Text="1" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" Text="1" FontSize="16" TextColor="Black" />
-
-                <Label r:Row.ColumnSpan="1" Text="Col 1" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 2" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 3" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 4" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 5" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 6" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 7" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 8" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 9" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 10" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 11" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="1" Text="Col 12" FontSize="16" TextColor="Black" />
-
-                <Label r:Row.ColumnSpan="1" Text="1/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="2" Text="2/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="3" Text="3/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="4" Text="4/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="5" Text="5/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="6" Text="6/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="7" Text="7/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="8" Text="8/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="9" Text="9/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="10" Text="10/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="11" Text="11/12" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" Text="12/12" FontSize="16" TextColor="Black" />
-
-                <Label r:Row.ColumnSpan="12" Text="Offset 0" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="1" Text="Offset 1" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="2" Text="Offset 2" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="3" Text="Offset 3" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="4" Text="Offset 4" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="5" Text="Offset 5" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="6" Text="Offset 6" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="7" Text="Offset 7" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="8" Text="Offset 8" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="9" Text="Offset 9" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="10" Text="Offset 10" FontSize="16" TextColor="Black" />
-                <Label r:Row.ColumnSpan="12" r:Row.Offset="11" Text="Offset 11" FontSize="16" TextColor="Black" />
-            </r:Row>
-        </r:Container>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Options}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Button Text="{Binding Title}" Command="{Binding OnSelected}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
