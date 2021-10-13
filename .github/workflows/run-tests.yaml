@@ -1,0 +1,13 @@
+name: Run Tests
+
+on: [push]
+
+jobs:
+
+  build:
+
+  runs-on: local-runner
+  
+    steps:
+      - name: dotnet test
+        run: dotnet test .\src\My.Maui.Responsive.Tests
