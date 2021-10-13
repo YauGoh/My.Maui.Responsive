@@ -3,9 +3,12 @@ name: Run Tests
 on: [push]
 
 jobs:
-  test:
-    runs-on: self-hosted
-    steps:
-      - name: dotnet test
-        run: dotnet test .\src\My.Maui.Responsive.Tests
-        shell: pwsh
+    test:
+        runs-on: self-hosted
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: dotnet test
+              run: dotnet test .\src\My.Maui.Responsive.Tests
+              shell: pwsh
