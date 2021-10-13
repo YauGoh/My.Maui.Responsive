@@ -6,8 +6,8 @@ jobs:
 
   build:
 
-  runs-on: local-runner
-  
+  runs-on: self-hosted
+
     steps:
       - name: dotnet test
         run: dotnet test .\src\My.Maui.Responsive.Tests
