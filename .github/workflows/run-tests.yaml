@@ -3,11 +3,9 @@ name: Run Tests
 on: [push]
 
 jobs:
-
   build:
 
-  runs-on: self-hosted
-
-    steps:
-      - name: dotnet test
-        run: dotnet test .\src\My.Maui.Responsive.Tests
+    runs-on: self-hosted
+      steps:
+        - name: dotnet test
+          run: dotnet test .\src\My.Maui.Responsive.Tests
