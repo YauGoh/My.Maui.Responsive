@@ -5,7 +5,7 @@ on: [push]
 jobs:
   test:
     runs-on: self-hosted
-      steps:
-        - name: dotnet test
-          run: dotnet test .\src\My.Maui.Responsive.Tests
-          shell: powershell
+    steps:
+      - name: dotnet test
+        run: dotnet test .\src\My.Maui.Responsive.Tests
+        shell: pwsh
