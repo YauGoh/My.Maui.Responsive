@@ -9,3 +9,4 @@ jobs:
       steps:
         - name: dotnet test
           run: dotnet test .\src\My.Maui.Responsive.Tests
+          shell: powershell
