@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "My.Maui.Responsive.Samples.WinUI": {
-      "commandName": "MsixPackage",
-      "nativeDebugging": false
-    }
-  }
-}

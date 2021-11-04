@@ -8,19 +8,11 @@
     <Authors>Yau</Authors>
     <Description>Responsive layouts for MAUI applications</Description>
     <PackageProjectUrl>https://github.com/YauGoh/My.Maui.Responsive</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/YauGoh/My.Maui.Responsive</RepositoryUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Version>1.0.1-alpha</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>Responsive; Responsive Grid; Bootstrap; Layout;</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
 
 </Project>

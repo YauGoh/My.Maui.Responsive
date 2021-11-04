@@ -1,51 +1,50 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1AFD5092-3AD4-4006-8547-5A33AB5D4398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Maui.Responsive", "src\My.Maui.Responsive\My.Maui.Responsive.csproj", "{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Maui.Responsive", "src\My.Maui.Responsive\My.Maui.Responsive.csproj", "{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "My.Maui.Responsive.Samples", "My.Maui.Responsive.Samples", "{E6C17DF7-E5A9-4121-88F6-75DEEAAA91F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My.Maui.Responsive.Tests", "src\My.Maui.Responsive.Tests\My.Maui.Responsive.Tests.csproj", "{E44A65FD-F185-44C0-AF31-5910C2A78911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Maui.Responsive.Samples", "src\My.Maui.Responsive.Samples\My.Maui.Responsive.Samples\My.Maui.Responsive.Samples.csproj", "{73ED5C3B-E435-4D5B-99A8-9FD7529012DA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{CF8958D3-B647-4246-9EAF-A55FCB25759C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Maui.Responsive.Samples.WinUI", "src\My.Maui.Responsive.Samples\My.Maui.Responsive.Samples.WinUI\My.Maui.Responsive.Samples.WinUI.csproj", "{B170ADEA-7AB7-4661-AA88-16A62F4749B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Maui.Responsive.Samples", "src\Samples\My.Maui.Responsive.Samples\My.Maui.Responsive.Samples.csproj", "{F502187A-0B2E-4896-B1B3-83AA06CC3024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My.Maui.Responsive.Tests", "src\My.Maui.Responsive.Tests\My.Maui.Responsive.Tests.csproj", "{E44A65FD-F185-44C0-AF31-5910C2A78911}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{1F763CDE-5D38-4F8F-A452-57BEFF70F4EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73ED5C3B-E435-4D5B-99A8-9FD7529012DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73ED5C3B-E435-4D5B-99A8-9FD7529012DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73ED5C3B-E435-4D5B-99A8-9FD7529012DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73ED5C3B-E435-4D5B-99A8-9FD7529012DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B170ADEA-7AB7-4661-AA88-16A62F4749B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B170ADEA-7AB7-4661-AA88-16A62F4749B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B170ADEA-7AB7-4661-AA88-16A62F4749B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B170ADEA-7AB7-4661-AA88-16A62F4749B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E44A65FD-F185-44C0-AF31-5910C2A78911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E44A65FD-F185-44C0-AF31-5910C2A78911}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E44A65FD-F185-44C0-AF31-5910C2A78911}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E44A65FD-F185-44C0-AF31-5910C2A78911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B4E8C9DE-F907-4DC0-BBF3-236FCE132BE5} = {1AFD5092-3AD4-4006-8547-5A33AB5D4398}
-		{E6C17DF7-E5A9-4121-88F6-75DEEAAA91F4} = {1AFD5092-3AD4-4006-8547-5A33AB5D4398}
-		{73ED5C3B-E435-4D5B-99A8-9FD7529012DA} = {E6C17DF7-E5A9-4121-88F6-75DEEAAA91F4}
-		{B170ADEA-7AB7-4661-AA88-16A62F4749B5} = {E6C17DF7-E5A9-4121-88F6-75DEEAAA91F4}
 		{E44A65FD-F185-44C0-AF31-5910C2A78911} = {1AFD5092-3AD4-4006-8547-5A33AB5D4398}
+		{CF8958D3-B647-4246-9EAF-A55FCB25759C} = {1AFD5092-3AD4-4006-8547-5A33AB5D4398}
+		{F502187A-0B2E-4896-B1B3-83AA06CC3024} = {CF8958D3-B647-4246-9EAF-A55FCB25759C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC987CC5-1E9E-4D09-9D20-6C5684C108B0}
 	EndGlobalSection
 EndGlobal
