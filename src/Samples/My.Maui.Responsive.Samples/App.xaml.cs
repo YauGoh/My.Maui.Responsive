@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
+using My.Maui.Responsive.Samples.Pages;
 using My.Maui.Responsive.Samples.ViewModels;
 using Application = Microsoft.Maui.Controls.Application;
 
@@ -22,7 +23,7 @@ namespace My.Maui.Responsive.Samples
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new LandingPage());
         }
     }
 }

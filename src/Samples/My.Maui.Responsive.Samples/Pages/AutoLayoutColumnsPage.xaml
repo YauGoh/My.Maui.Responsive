@@ -1,0 +1,12 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
+             x:Class="My.Maui.Responsive.Samples.Pages.AutoLayoutColumnsPage"
+             BackgroundColor="{DynamicResource SecondaryColor}"
+             BindingContext="{x:Static vm:ViewModelLocator.LandingPage}"
+             Title="Auto-layout columns">
+
+    <ScrollView>
+        
+    </ScrollView>
+</ContentPage>

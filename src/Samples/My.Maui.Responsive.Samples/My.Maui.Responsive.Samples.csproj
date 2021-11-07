@@ -59,12 +59,82 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\OffsettingColumnsPage.xaml.cs">
+	    <DependentUpon>OffsettingColumnsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\EqualWidthMultiRowPage.xaml.cs">
+	    <DependentUpon>EqualWidthMultiRowPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\NestingPage.xaml.cs">
+	    <DependentUpon>NestingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ReorderingPage.xaml.cs">
+	    <DependentUpon>ReorderingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\HorizontalAlignmentPage.xaml.cs">
+	    <DependentUpon>HorizontalAlignmentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\VerticalAlignmentPage.xaml.cs">
+	    <DependentUpon>VerticalAlignmentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\VariableWidthContentPage.xaml.cs">
+	    <DependentUpon>VariableWidthContentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SettingOneColumnWidthPage.xaml.cs">
+	    <DependentUpon>SettingOneColumnWidthPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\AutoLayoutColumnsPage.xaml.cs">
+	    <DependentUpon>AutoLayoutColumnsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\MixAndMatchPage.xaml.cs">
+	    <DependentUpon>MixAndMatchPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\LandingPage.xaml.cs">
 	    <DependentUpon>LandingPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\OffsettingColumnsPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\EqualWidthMultiRowPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\NestingPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ReorderingPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\HorizontalAlignmentPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\VerticalAlignmentPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\VariableWidthContentPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SettingOneColumnWidthPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\AutoLayoutColumnsPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MixAndMatchPage.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\LandingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

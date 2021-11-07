@@ -3,9 +3,20 @@
              xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
              x:Class="My.Maui.Responsive.Samples.Pages.LandingPage"
              BackgroundColor="{DynamicResource SecondaryColor}"
-             BindingContext="{x:Static vm:ViewModelLocator.LandingPage}">
+             BindingContext="{x:Static vm:ViewModelLocator.LandingPage}"
+             Title="Menu">
 
     <ScrollView>
-        
+        <StackLayout>
+            <ListView ItemsSource="{Binding SamplePages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Button Text="{Binding Title}" Command="{Binding NavigateTo}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>    
     </ScrollView>
 </ContentPage>
