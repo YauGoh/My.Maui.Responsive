@@ -2,7 +2,7 @@ using Xunit;
 
 namespace My.Maui.Responsive.Tests;
 
-public class UnitTest1
+public class AutoLayoutColumns
 {
     [Fact]
     public void Test1()

@@ -5,7 +5,6 @@
              BackgroundColor="{DynamicResource SecondaryColor}"
              BindingContext="{x:Static vm:ViewModelLocator.LandingPage}"
              Title="Menu">
-
     <ScrollView>
         <StackLayout>
             <ListView ItemsSource="{Binding SamplePages}">
@@ -17,6 +16,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>    
+        </StackLayout>
     </ScrollView>
 </ContentPage>

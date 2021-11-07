@@ -15,4 +15,10 @@
     <PackageTags>Responsive; Responsive Grid; Bootstrap; Layout;</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>My.Maui.Responsive.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>
