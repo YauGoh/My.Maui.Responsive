@@ -19,12 +19,16 @@ namespace My.Maui.Responsive
             .Where(_ => _.Visibility == Visibility.Visible)
             .OrderBy(_ => _.GetOrder());
 
-        public int GetTotalColumns() =>
-            Columns == default ?
-            Children
-                .Where(_ => _.Visibility == Visibility.Visible)
-                .Sum(_ => _.GetColumnSpan()) :
-            Columns;
+        public int GetTotalColumns()
+        {
+            var visibleViews = GetOrderedVisibleElements();
+
+            if (visibleViews.All(_ => _.GetColumnSpan() == default)) return visibleViews.Count();
+
+            if (Columns == default) return visibleViews.Sum(_ => _.GetColumnSpan() == default ? 1 : _.GetColumnSpan());
+
+            return Columns;
+        }
 
         protected override ILayoutManager CreateLayoutManager() => new RowLayoutManager(this);
     }

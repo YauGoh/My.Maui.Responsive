@@ -51,7 +51,7 @@ namespace My.Maui.Responsive.Layouts
             foreach (var child in _rowLayout.GetOrderedVisibleElements())
             {
                 var offset = child.GetOffset();
-                var columnSpan = child.GetColumnSpan();
+                var columnSpan = child.GetColumnSpan(1);
 
                 var offsetWidth = Math.Min(GetAllowedWidth(offset, totalColumns, availableWidth), availableWidth);
                 var columnWidth = Math.Min(GetAllowedWidth(columnSpan, totalColumns, availableWidth), availableWidth - offset);

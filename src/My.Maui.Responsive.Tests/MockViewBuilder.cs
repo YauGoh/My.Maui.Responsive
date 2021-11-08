@@ -21,7 +21,7 @@ namespace My.Maui.Responsive.Tests
         {
             var mock = new Mock<IView>();
 
-            mock.Setup(_ => _.Measure(It.IsAny<double>(), It.IsAny<double>())).Returns((double width, double height) => new Size(width, 20.0));
+            mock.Setup(_ => _.Measure(It.IsAny<double>(), It.IsAny<double>())).Returns((double width, double height) => new Size(width, _requiredHeight));
 
             return mock;
         }

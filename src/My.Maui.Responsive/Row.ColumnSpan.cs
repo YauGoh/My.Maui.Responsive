@@ -5,7 +5,7 @@ namespace My.Maui.Responsive
 {
     public partial class Row
     {
-        public static readonly BindableProperty ColumnSpanProperty = BindableProperty.CreateAttached("ColumnSpan", typeof(ResponsiveSpecifications), typeof(Row), new ResponsiveSpecifications { Default = 1 });
+        public static readonly BindableProperty ColumnSpanProperty = BindableProperty.CreateAttached("ColumnSpan", typeof(ResponsiveSpecifications), typeof(Row), new ResponsiveSpecifications { Default = 0 });
         public static readonly BindableProperty XsProperty = BindableProperty.CreateAttached("Xs", typeof(int?), typeof(Row), null, propertyChanged: OnXsPropertyChanged);
         public static readonly BindableProperty SmProperty = BindableProperty.CreateAttached("Sm", typeof(int?), typeof(Row), null, propertyChanged: OnSmPropertyChanged);
         public static readonly BindableProperty MdProperty = BindableProperty.CreateAttached("Md", typeof(int?), typeof(Row), null, propertyChanged: OnMdPropertyChanged);
