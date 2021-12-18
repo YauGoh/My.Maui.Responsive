@@ -1,11 +1,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
+             xmlns:r="clr-namespace:My.Maui.Responsive;assembly=My.Maui.Responsive"
              x:Class="My.Maui.Responsive.Samples.Pages.EqualWidthMultiRowPage"
              BackgroundColor="{DynamicResource SecondaryColor}"
              Title="Equal-width multi-row">
 
     <ScrollView>
-        
+        <r:Container>
+            <r:Row>
+                <Label Text="1 of 2" />
+                <Label Text="2 of 2" />
+            </r:Row>
+            <r:Row>
+                <Label Text="1 of 3" />
+                <Label Text="2 of 3" />
+                <Label Text="3 of 3" />
+            </r:Row>
+        </r:Container>
     </ScrollView>
 </ContentPage>

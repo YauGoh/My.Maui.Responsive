@@ -1,11 +1,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
+             xmlns:r="clr-namespace:My.Maui.Responsive;assembly=My.Maui.Responsive"
              x:Class="My.Maui.Responsive.Samples.Pages.SettingOneColumnWidthPage"
              BackgroundColor="{DynamicResource SecondaryColor}"
              Title="Setting one column width">
 
     <ScrollView>
-        
+        <r:Container>
+            <r:Row>
+                <Label Text="1 of 4" />
+                <Label Text="2 of 4" />
+                <Label r:Row.Xs="4"  Text="4 Columns" />
+                <Label Text="3 of 4" />
+                <Label Text="4 of 4" />
+            </r:Row>
+           
+        </r:Container>
     </ScrollView>
 </ContentPage>
