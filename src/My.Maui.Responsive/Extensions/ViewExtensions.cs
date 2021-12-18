@@ -12,6 +12,13 @@ namespace My.Maui.Responsive.Extensions
             return columnSpan == default ? @default : columnSpan;
         }
 
+        internal static bool IsAutoColumn(this IView view)
+        {
+            var columnSpan = Row.GetColumnSpan((BindableObject)view).Current;
+
+            return columnSpan == default;
+        }
+
         internal static int GetOrder(this IView view) => Row.GetOrder((BindableObject)view).Current;
 
         internal static int GetOffset(this IView view) => Row.GetOffset((BindableObject)view).Current;

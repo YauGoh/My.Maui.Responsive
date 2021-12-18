@@ -13,17 +13,21 @@ namespace My.Maui.Responsive
         private static IWindowSizeProvider _instance = new CurrentApplicationMainPageWindowSizeProvider();
 
         internal static IWindowSizeProvider Instance => _instance;
+
+        internal static void SetProvider(IWindowSizeProvider provider) => _instance = provider;
     }
 
     class CurrentApplicationMainPageWindowSizeProvider : IWindowSizeProvider
     {
         public CurrentApplicationMainPageWindowSizeProvider()
         {
-            Application.Current.MainPage.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
+            if (Application.Current == null) return;
+
+            Application.Current.MainPage!.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
         }
 
         public event EventHandler<Size>? SizeChanged;
 
-        public Size Get() => Application.Current.MainPage.ContainerArea.Size;
+        public Size Get() => Application.Current!.MainPage!.ContainerArea.Size;
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.Maui.Layouts;
 using My.Maui.Responsive.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace My.Maui.Responsive.Layouts
 {
@@ -11,6 +12,7 @@ namespace My.Maui.Responsive.Layouts
     {
         private readonly IRowLayout _rowLayout;
         private Dictionary<IView, Rectangle> _viewRectangles = new Dictionary<IView, Rectangle>();
+
         public RowLayoutManager(IRowLayout rowLayout) : base(rowLayout) 
         {
             _rowLayout = rowLayout;
@@ -36,7 +38,12 @@ namespace My.Maui.Responsive.Layouts
 
             var current = rectangle.Location.Offset(_rowLayout.Padding, OffsetFlags.Top | OffsetFlags.Left);
 
-            var totalColumns = _rowLayout.GetTotalColumns();
+            var totalColumns = GetTotalColumns();
+
+            var totalAssignedColumns = GetTotalAssignedColumns();
+            var totalAutoColumns = GetTotalAutoColumns();
+
+            var autoColumnSpan = Math.Max(1, (totalColumns - totalAssignedColumns) / totalAutoColumns);
 
             var availableWidth = rectangle.Width - _rowLayout.Padding.HorizontalThickness;
             var availableColumns = totalColumns;
@@ -51,7 +58,9 @@ namespace My.Maui.Responsive.Layouts
             foreach (var child in _rowLayout.GetOrderedVisibleElements())
             {
                 var offset = child.GetOffset();
-                var columnSpan = child.GetColumnSpan(1);
+                var columnSpan = child.IsAutoColumn() 
+                    ? autoColumnSpan
+                    : child.GetColumnSpan(1);
 
                 var offsetWidth = Math.Min(GetAllowedWidth(offset, totalColumns, availableWidth), availableWidth);
                 var columnWidth = Math.Min(GetAllowedWidth(columnSpan, totalColumns, availableWidth), availableWidth - offset);
@@ -90,6 +99,23 @@ namespace My.Maui.Responsive.Layouts
         }
 
         private double GetAllowedWidth(int columnSpan, int totalColumns, double width) => columnSpan * width / totalColumns;
+
+        private int GetTotalColumns()
+        {
+            var visibleViews = _rowLayout.GetOrderedVisibleElements();
+
+            if (visibleViews.All(_ => _.GetColumnSpan() == default)) return visibleViews.Count();
+
+            if (_rowLayout.Columns == default) return visibleViews.Sum(_ => _.GetColumnSpan() == default ? 1 : _.GetColumnSpan());
+
+            return _rowLayout.Columns;
+        }
+
+        public int GetTotalAutoColumns() => _rowLayout.GetOrderedVisibleElements().Count(_ => _.GetColumnSpan() == default);
+
+        public int GetTotalAssignedColumns() => _rowLayout.GetOrderedVisibleElements()
+            .Where(_ => _.GetColumnSpan() != default)
+            .Sum(_ => _.GetColumnSpan());
 
         class WorkingLayout
         {

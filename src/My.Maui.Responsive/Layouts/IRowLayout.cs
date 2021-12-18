@@ -7,6 +7,6 @@ namespace My.Maui.Responsive.Layouts
     {
         IEnumerable<IView> GetOrderedVisibleElements();
 
-        int GetTotalColumns();
+        int Columns { get; set; }
     }
 }

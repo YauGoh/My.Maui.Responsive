@@ -1,24 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<Nullable>enable</Nullable>
+		<Authors>Yau</Authors>
+		<Description>Responsive layouts for MAUI applications</Description>
+		<PackageProjectUrl>https://github.com/YauGoh/My.Maui.Responsive</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/YauGoh/My.Maui.Responsive</RepositoryUrl>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<Version>1.0.1-alpha</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageTags>Responsive; Responsive Grid; Bootstrap; Layout;</PackageTags>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <UseMaui>true</UseMaui>
-    <SingleProject>true</SingleProject>
-    <Nullable>enable</Nullable>
-    <Authors>Yau</Authors>
-    <Description>Responsive layouts for MAUI applications</Description>
-    <PackageProjectUrl>https://github.com/YauGoh/My.Maui.Responsive</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/YauGoh/My.Maui.Responsive</RepositoryUrl>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>1.0.1-alpha</Version>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageTags>Responsive; Responsive Grid; Bootstrap; Layout;</PackageTags>
-  </PropertyGroup>
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>My.Maui.Responsive.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
 
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>My.Maui.Responsive.Tests</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
-
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
 </Project>
