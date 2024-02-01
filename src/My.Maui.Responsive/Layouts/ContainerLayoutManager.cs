@@ -1,8 +1,6 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Layouts;
-using My.Maui.Responsive.Extensions;
-using System;
 using System.Collections.Generic;
 
 namespace My.Maui.Responsive.Layouts
@@ -10,7 +8,7 @@ namespace My.Maui.Responsive.Layouts
     internal class ContainerLayoutManager : LayoutManager
     {
         private readonly IContainerLayout _layout;
-        private Dictionary<IView, Rectangle> _viewSizes = new Dictionary<IView, Rectangle>();
+        private Dictionary<IView, Rect> _viewSizes = new Dictionary<IView, Rect>();
 
 
         public ContainerLayoutManager(IContainerLayout layout) : base(layout)
@@ -18,7 +16,7 @@ namespace My.Maui.Responsive.Layouts
             _layout = layout;
         }
 
-        public override Size ArrangeChildren(Rectangle bounds)
+        public override Size ArrangeChildren(Rect bounds)
         {
             foreach(var (row, rectangle) in _viewSizes)
             {
@@ -40,7 +38,7 @@ namespace My.Maui.Responsive.Layouts
             {
                 var rowSize = row.Measure(widthConstraint - _layout.Padding.HorizontalThickness, double.PositiveInfinity);
 
-                _viewSizes.Add(row, new Rectangle(new Point(_layout.Padding.Left, y),  rowSize));
+                _viewSizes.Add(row, new Rect(new Point(_layout.Padding.Left, y),  rowSize));
 
                 y += rowSize.Height;
             }

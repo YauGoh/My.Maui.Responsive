@@ -11,14 +11,14 @@ namespace My.Maui.Responsive.Layouts
     internal class RowLayoutManager : LayoutManager
     {
         private readonly IRowLayout _rowLayout;
-        private Dictionary<IView, Rectangle> _viewRectangles = new Dictionary<IView, Rectangle>();
+        private Dictionary<IView, Rect> _viewRectangles = new Dictionary<IView, Rect>();
 
         public RowLayoutManager(IRowLayout rowLayout) : base(rowLayout) 
         {
             _rowLayout = rowLayout;
         }
 
-        public override Size ArrangeChildren(Rectangle bounds)
+        public override Size ArrangeChildren(Rect bounds)
         {
             foreach(var (view, rectangle) in _viewRectangles)
             {
@@ -32,7 +32,7 @@ namespace My.Maui.Responsive.Layouts
 
         public override Size Measure(double widthConstraint, double heightConstraint)
         {
-            var rectangle = new Rectangle(Point.Zero, new Size(widthConstraint, heightConstraint));
+            var rectangle = new Rect(Point.Zero, new Size(widthConstraint, heightConstraint));
 
             _viewRectangles.Clear();
 
@@ -83,7 +83,7 @@ namespace My.Maui.Responsive.Layouts
 
                 current = current.OffsetLeft(offsetWidth);
 
-                rowItems.Add(new WorkingLayout(child, new Rectangle(current, new Size(columnWidth, childHeight))));
+                rowItems.Add(new WorkingLayout(child, new Rect(current, new Size(columnWidth, childHeight))));
                 maxRowHeight = Math.Max(maxRowHeight, childHeight);
 
                 current = current.OffsetLeft(columnWidth);
@@ -119,14 +119,14 @@ namespace My.Maui.Responsive.Layouts
 
         class WorkingLayout
         {
-            public WorkingLayout(IView view, Rectangle rectangle)
+            public WorkingLayout(IView view, Rect rectangle)
             {
                 View = view;
                 Rectangle = rectangle;
             }
 
             public IView View { get; }
-            public Rectangle Rectangle { get; }
+            public Rect Rectangle { get; }
         }
     }
 }
