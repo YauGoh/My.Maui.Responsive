@@ -23,8 +23,9 @@
 		<RepositoryUrl>https://github.com/YauGoh/My.Maui.Responsive</RepositoryUrl>
 		<AssemblyVersion>8.0.0.0</AssemblyVersion>
 		<Version>8.0.0-alpha</Version>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageTags>Responsive; Responsive Grid; Bootstrap; Layout;</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,6 +43,13 @@
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
 			<_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
 		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
