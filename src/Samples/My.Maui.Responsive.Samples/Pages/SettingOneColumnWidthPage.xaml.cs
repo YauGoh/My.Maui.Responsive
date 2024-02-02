@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class SettingOneColumnWidthPage : ContentPage
 {
-    public partial class SettingOneColumnWidthPage : ContentPage
-    {
-        public SettingOneColumnWidthPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public SettingOneColumnWidthPage()
+	{
+		InitializeComponent();
+	}
 }

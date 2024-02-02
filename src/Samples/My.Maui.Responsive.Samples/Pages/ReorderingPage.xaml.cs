@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class ReorderingPage : ContentPage
 {
-    public partial class ReorderingPage : ContentPage
-    {
-        public ReorderingPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public ReorderingPage()
+	{
+		InitializeComponent();
+	}
 }

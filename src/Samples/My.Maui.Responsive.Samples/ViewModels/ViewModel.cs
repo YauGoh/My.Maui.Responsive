@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace My.Maui.Responsive.Samples.ViewModels
+namespace My.Maui.Responsive.Samples.ViewModels;
+
+internal abstract class ViewModel : INotifyPropertyChanged
 {
-    internal abstract class ViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-    }
+    public event PropertyChangedEventHandler? PropertyChanged;
 }

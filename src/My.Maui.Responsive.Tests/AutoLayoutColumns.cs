@@ -1,8 +1,5 @@
-using Microsoft.Maui.Graphics;
-using Moq;
+﻿using Moq;
 using My.Maui.Responsive.Layouts;
-using System.Linq;
-using Xunit;
 
 namespace My.Maui.Responsive.Tests;
 
@@ -30,15 +27,15 @@ public class AutoLayoutColumns : MyMauiTestBase
             .Range(0, count)
             .Select(_ => MockViewBuilder.Default.WithHeight(100).Build())
             .ToArray();
-           
+
         _mockRowLayout.Setup(_ => _.GetOrderedVisibleElements()).Returns(mockChildren.Select(_ => _.Object));
 
         _rowLayoutManager.Measure(rowWidth, 100);
-        _rowLayoutManager.ArrangeChildren(new Rectangle(0, 0, rowWidth, 100));
+        _rowLayoutManager.ArrangeChildren(new Rect(0, 0, rowWidth, 100));
 
-        foreach(var mock in mockChildren)
+        foreach (var mock in mockChildren)
         {
-            mock.Verify(child => child.Arrange(It.Is<Rectangle>(size => size.Width == expectItemWidths)));
+            mock.Verify(child => child.Arrange(It.Is<Rect>(size => size.Width == expectItemWidths)));
         }
     }
 
@@ -62,13 +59,13 @@ public class AutoLayoutColumns : MyMauiTestBase
         _mockRowLayout.Setup(_ => _.Columns).Returns(12);
 
         _rowLayoutManager.Measure(1200, double.PositiveInfinity);
-        _rowLayoutManager.ArrangeChildren(new Rectangle(0, 0, 1200, 100));
+        _rowLayoutManager.ArrangeChildren(new Rect(0, 0, 1200, 100));
 
         var expectedWidths = new[] { 200.0, 200.0, 400.0, 200.0, 200.0 };
 
-        foreach(var (mock, index) in mockChildren.Select((mock, index) => (mock, index)))
+        foreach (var (mock, index) in mockChildren.Select((mock, index) => (mock, index)))
         {
-            mock.Verify(_ => _.Arrange(It.Is<Rectangle>(size => size.Width == expectedWidths[index])));
+            mock.Verify(_ => _.Arrange(It.Is<Rect>(size => size.Width == expectedWidths[index])));
         }
     }
 }

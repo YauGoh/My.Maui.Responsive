@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class MixAndMatchPage : ContentPage
 {
-    public partial class MixAndMatchPage : ContentPage
-    {
-        public MixAndMatchPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public MixAndMatchPage()
+	{
+		InitializeComponent();
+	}
 }

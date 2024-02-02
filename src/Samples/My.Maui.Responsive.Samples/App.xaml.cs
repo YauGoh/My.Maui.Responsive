@@ -1,29 +1,26 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui.Controls;
-using My.Maui.Responsive.Samples.Pages;
+﻿using My.Maui.Responsive.Samples.Pages;
 using My.Maui.Responsive.Samples.ViewModels;
-using Application = Microsoft.Maui.Controls.Application;
 
-namespace My.Maui.Responsive.Samples
+namespace My.Maui.Responsive.Samples;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    static App()
     {
-        static App()
-        {
-            var services = new ServiceCollection();
+        var services = new ServiceCollection();
 
-            services.UseViewModels();
+        services.UseViewModels();
 
-            var provider = services.BuildServiceProvider();
+        var provider = services.BuildServiceProvider();
 
-            ViewModelLocator.UseServiceProvider(provider);
-        }
+        ViewModelLocator.UseServiceProvider(provider);
+    }
 
-        public App()
-        {
-            InitializeComponent();
 
-            MainPage = new NavigationPage(new LandingPage());
-        }
+    public App()
+	{
+		InitializeComponent();
+
+        MainPage = new NavigationPage(new LandingPage());
     }
 }

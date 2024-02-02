@@ -1,12 +1,6 @@
-﻿using Microsoft.Maui;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace My.Maui.Responsive.Layouts;
 
-namespace My.Maui.Responsive.Layouts
+internal interface IContainerLayout : Microsoft.Maui.ILayout
 {
-    internal interface IContainerLayout : ILayout
-    {
-        IEnumerable<IView> GetOrderedVisibleRows();
-    }
+    IEnumerable<IView> GetOrderedVisibleRows();
 }

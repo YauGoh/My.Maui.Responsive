@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class AutoLayoutColumnsPage : ContentPage
 {
-    public partial class AutoLayoutColumnsPage : ContentPage
-    {
-        public AutoLayoutColumnsPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public AutoLayoutColumnsPage()
+	{
+		InitializeComponent();
+	}
 }

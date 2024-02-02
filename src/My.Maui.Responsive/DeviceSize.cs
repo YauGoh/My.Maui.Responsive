@@ -1,12 +1,11 @@
-﻿namespace My.Maui.Responsive
+﻿namespace My.Maui.Responsive;
+
+public enum DeviceSize
 {
-    public enum DeviceSize
-    {
-        XSmall,
-        Small,
-        Medium,
-        Large,
-        XLarge,
-        XXLarge
-    }
+    XSmall,
+    Small,
+    Medium,
+    Large,
+    XLarge,
+    XXLarge
 }
