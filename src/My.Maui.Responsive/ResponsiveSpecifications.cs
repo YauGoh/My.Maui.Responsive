@@ -1,75 +1,72 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
 
-namespace My.Maui.Responsive
+namespace My.Maui.Responsive;
+
+[TypeConverter(typeof(ResponsiveSpecificationsTypeConverter))]
+public record ResponsiveSpecifications
 {
-    [TypeConverter(typeof(ResponsiveSpecificationsTypeConverter))]
-    public record ResponsiveSpecifications
+    public int Default { get; init; }
+
+    public int? Xs { get; init; }
+
+    public int? Sm { get; init; }
+
+    public int? Md { get; init; }
+
+    public int? Lg { get; init; }
+
+    public int? Xl { get; init; }
+
+    public int? Xxl { get; init; }
+
+    public int Current => IDeviceSizeProvider.Instance.Get() switch
     {
-        public int Default { get; init; }
+        DeviceSize.XSmall => Xs ?? Default,
+        DeviceSize.Small => Sm ?? Xs ?? Default,
+        DeviceSize.Medium => Md ?? Sm ?? Xs ?? Default,
+        DeviceSize.Large => Lg ?? Md ?? Sm ?? Xs ?? Default,
+        DeviceSize.XLarge => Xl ?? Lg ?? Md ?? Sm ?? Xs ?? Default,
+        DeviceSize.XXLarge => Xxl ?? Xl ?? Lg ?? Md ?? Sm ?? Xs ?? Default,
+        _ => Default
+    };
+}
 
-        public int? Xs { get; init; }
+public class ResponsiveSpecificationsTypeConverter : TypeConverter
+{
+    public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
+        => sourceType == typeof(string);
 
-        public int? Sm { get; init; }
+    public override bool CanConvertTo(ITypeDescriptorContext? context, Type? destinationType)
+        => destinationType == typeof(string);
 
-        public int? Md { get; init; }
-        
-        public int? Lg { get; init; }
-        
-        public int? Xl { get; init; }
+    public override object ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object? value)
+    {
+        if (value == null) return new ResponsiveSpecifications { };
 
-        public int? Xxl { get; init; }
+        var values = ((string)value)
+            .Split(',', StringSplitOptions.TrimEntries)
+            .Select(str => int.TryParse(str, out var intValue) ? (int?)intValue : null)
+            .ToList();
 
-        public int Current => IDeviceSizeProvider.Instance.Get() switch
+        var specifications = new ResponsiveSpecifications
         {
-            DeviceSize.XSmall  => Xs ?? Default,
-            DeviceSize.Small   => Sm ?? Xs ?? Default,
-            DeviceSize.Medium  => Md ?? Sm ?? Xs ?? Default,
-            DeviceSize.Large   => Lg ?? Md ?? Sm ?? Xs ?? Default,
-            DeviceSize.XLarge  => Xl ?? Lg ?? Md ?? Sm ?? Xs ?? Default,
-            DeviceSize.XXLarge => Xxl ?? Xl ?? Lg ?? Md ?? Sm ?? Xs ?? Default,
-            _ => Default
+            Xs = values.FirstOrDefault(),
+            Sm = values.Skip(1).FirstOrDefault(),
+            Md = values.Skip(2).FirstOrDefault(),
+            Lg = values.Skip(3).FirstOrDefault(),
+            Xl = values.Skip(4).FirstOrDefault(),
+            Xxl = values.Skip(5).FirstOrDefault()
         };
+
+        return specifications;
     }
 
-    public class ResponsiveSpecificationsTypeConverter : TypeConverter
+    public override object ConvertTo(ITypeDescriptorContext? context, CultureInfo? culture, object? value, Type destinationType)
     {
-        public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
-            => sourceType == typeof(string);
+        if (value is not ResponsiveSpecifications specs)
+            throw new NotSupportedException();
 
-        public override bool CanConvertTo(ITypeDescriptorContext? context, Type? destinationType)
-            => destinationType == typeof(string);
-
-        public override object ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object? value)
-        {
-            if (value == null) return new ResponsiveSpecifications { };
-
-            var values = ((string)value)
-                .Split(',', StringSplitOptions.TrimEntries)
-                .Select(str => int.TryParse(str, out var intValue) ? (int?)intValue : null)
-                .ToList();
-
-            var specifications = new ResponsiveSpecifications
-            {
-                Xs = values.FirstOrDefault(),
-                Sm = values.Skip(1).FirstOrDefault(),
-                Md = values.Skip(2).FirstOrDefault(),
-                Lg = values.Skip(3).FirstOrDefault(),
-                Xl = values.Skip(4).FirstOrDefault(),
-                Xxl = values.Skip(5).FirstOrDefault()
-            };
-
-            return specifications;
-        }
-
-        public override object ConvertTo(ITypeDescriptorContext? context, CultureInfo? culture, object? value, Type destinationType)
-        {
-            if (value is not ResponsiveSpecifications specs)
-                throw new NotSupportedException();
-
-            return $"{specs.Xs},{specs.Sm},{specs.Md},{specs.Lg},{specs.Xl},{specs.Xxl}";
-        }
+        return $"{specs.Xs},{specs.Sm},{specs.Md},{specs.Lg},{specs.Xl},{specs.Xxl}";
     }
 }

@@ -1,12 +1,8 @@
-﻿using Microsoft.Maui;
-using System.Collections.Generic;
+﻿namespace My.Maui.Responsive.Layouts;
 
-namespace My.Maui.Responsive.Layouts
+internal interface IRowLayout : Microsoft.Maui.ILayout
 {
-    internal interface IRowLayout : ILayout
-    {
-        IEnumerable<IView> GetOrderedVisibleElements();
+    IEnumerable<IView> GetOrderedVisibleElements();
 
-        int Columns { get; set; }
-    }
+    int Columns { get; set; }
 }

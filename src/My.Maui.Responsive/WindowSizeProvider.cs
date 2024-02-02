@@ -1,33 +1,28 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-using System;
+﻿namespace My.Maui.Responsive;
 
-namespace My.Maui.Responsive
+internal interface IWindowSizeProvider
 {
-    internal interface IWindowSizeProvider
+    Size Get();
+
+    event EventHandler<Size>? SizeChanged;
+
+    private static IWindowSizeProvider _instance = new CurrentApplicationMainPageWindowSizeProvider();
+
+    internal static IWindowSizeProvider Instance => _instance;
+
+    internal static void SetProvider(IWindowSizeProvider provider) => _instance = provider;
+}
+
+class CurrentApplicationMainPageWindowSizeProvider : IWindowSizeProvider
+{
+    public CurrentApplicationMainPageWindowSizeProvider()
     {
-        Size Get();
+        if (Application.Current == null) return;
 
-        event EventHandler<Size>? SizeChanged;
-
-        private static IWindowSizeProvider _instance = new CurrentApplicationMainPageWindowSizeProvider();
-
-        internal static IWindowSizeProvider Instance => _instance;
-
-        internal static void SetProvider(IWindowSizeProvider provider) => _instance = provider;
+        Application.Current.MainPage!.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
     }
 
-    class CurrentApplicationMainPageWindowSizeProvider : IWindowSizeProvider
-    {
-        public CurrentApplicationMainPageWindowSizeProvider()
-        {
-            if (Application.Current == null) return;
+    public event EventHandler<Size>? SizeChanged;
 
-            Application.Current.MainPage!.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
-        }
-
-        public event EventHandler<Size>? SizeChanged;
-
-        public Size Get() => Application.Current!.MainPage!.ContainerArea.Size;
-    }
+    public Size Get() => Application.Current!.MainPage!.ContainerArea.Size;
 }

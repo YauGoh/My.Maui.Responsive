@@ -15,7 +15,7 @@
                 <Label Text="3 of 4" />
                 <Label Text="4 of 4" />
             </r:Row>
-           
+
         </r:Container>
     </ScrollView>
 </ContentPage>

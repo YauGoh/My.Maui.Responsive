@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class LandingPage : ContentPage
 {
-    public partial class LandingPage : ContentPage
-    {
-        public LandingPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public LandingPage()
+	{
+		InitializeComponent();
+	}
 }

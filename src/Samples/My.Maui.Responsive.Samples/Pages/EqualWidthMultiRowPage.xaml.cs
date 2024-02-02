@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class EqualWidthMultiRowPage : ContentPage
 {
-    public partial class EqualWidthMultiRowPage : ContentPage
-    {
-        public EqualWidthMultiRowPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public EqualWidthMultiRowPage()
+	{
+		InitializeComponent();
+	}
 }

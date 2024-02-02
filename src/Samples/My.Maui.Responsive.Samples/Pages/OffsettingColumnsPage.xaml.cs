@@ -1,12 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+namespace My.Maui.Responsive.Samples.Pages;
 
-namespace My.Maui.Responsive.Samples.Pages
+public partial class OffsettingColumnsPage : ContentPage
 {
-    public partial class OffsettingColumnsPage : ContentPage
-    {
-        public OffsettingColumnsPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public OffsettingColumnsPage()
+	{
+		InitializeComponent();
+	}
 }

@@ -1,43 +1,39 @@
-﻿using Microsoft.Maui.Graphics;
-using Moq;
-using System;
-using Xunit;
+﻿using Moq;
 
-namespace My.Maui.Responsive.Tests
+namespace My.Maui.Responsive.Tests;
+
+[Collection(nameof(IWindowSizeProvider))]
+public class MyMauiTestBase
 {
-    [Collection(nameof(IWindowSizeProvider))]
-    public class MyMauiTestBase
+    private Mock<IWindowSizeProvider> _mockWindowSizeProvider;
+
+    public MyMauiTestBase()
     {
-        private Mock<IWindowSizeProvider> _mockWindowSizeProvider;
 
-        public MyMauiTestBase()
-        {
+        _mockWindowSizeProvider = new Mock<IWindowSizeProvider>();
 
-            _mockWindowSizeProvider = new Mock<IWindowSizeProvider>();
+        WindowSizeProvider = _mockWindowSizeProvider.Object;
 
-            WindowSizeProvider = _mockWindowSizeProvider.Object;
+        IWindowSizeProvider.SetProvider(WindowSizeProvider);
 
-            IWindowSizeProvider.SetProvider(WindowSizeProvider);
+        SetWindowSize(new Size(1024, 4000));
+    }
 
-            SetWindowSize(new Size(1024, 4000));
-        }
+    internal IWindowSizeProvider WindowSizeProvider { get; }
 
-        internal IWindowSizeProvider WindowSizeProvider { get; }
+    internal void SetWindowSize(Size size) => _mockWindowSizeProvider.Setup(_ => _.Get()).Returns(size);
 
-        internal void SetWindowSize(Size size) => _mockWindowSizeProvider.Setup(_ => _.Get()).Returns(size);
+    internal void SetWindowWidth(double width)
+    {
+        var newSize = WindowSizeProvider.Get() with { Width = width };
 
-        internal void SetWindowWidth(double width)
-        {
-            var newSize = WindowSizeProvider.Get() with { Width = width };
+        SetWindowSize(newSize);
+    }
 
-            SetWindowSize(newSize);
-        }
+    internal void InvokeSizeChange(Size size)
+    {
+        SetWindowSize(size);
 
-        internal void InvokeSizeChange(Size size)
-        {
-            SetWindowSize(size);
-
-            _mockWindowSizeProvider.Raise(provider => provider.SizeChanged += (_, _) => { }, EventArgs.Empty);
-        }
+        _mockWindowSizeProvider.Raise(provider => provider.SizeChanged += (_, _) => { }, EventArgs.Empty);
     }
 }
