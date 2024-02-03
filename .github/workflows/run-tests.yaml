@@ -14,6 +14,15 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: dotnet test
-        run: dotnet test --configuration Release
+      - name: Build test projects
         shell: pwsh
+        run: |
+          dotnet build .\src\My.Maui.Responsive.Tests\ `
+            --configuration Release
+
+      - name: dotnet test
+        shell: pwsh
+        run: |
+          dotnet test `
+            --configuration Release `
+            --no-build
