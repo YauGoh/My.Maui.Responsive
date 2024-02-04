@@ -13,6 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Fetch tags
+        run: |
+          git fetch --prune --unshallow --tags
+
       - name: Setup Gitversion
         uses: gittools/actions/gitversion/setup@v0
         with:
