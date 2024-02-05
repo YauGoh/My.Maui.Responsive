@@ -38,7 +38,7 @@ internal class RowLayoutManager : LayoutManager
         var totalAssignedColumns = GetTotalAssignedColumns();
         var totalAutoColumns = GetTotalAutoColumns();
 
-        var autoColumnSpan = Math.Max(1, (totalColumns - totalAssignedColumns) / totalAutoColumns);
+        var autoColumnSpan = totalAutoColumns == 0 ? 0 : Math.Max(1, (totalColumns - totalAssignedColumns) / totalAutoColumns);
 
         var availableWidth = rectangle.Width - _rowLayout.Padding.HorizontalThickness;
         var availableColumns = totalColumns;

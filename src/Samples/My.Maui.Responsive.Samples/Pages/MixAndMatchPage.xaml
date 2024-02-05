@@ -1,12 +1,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:My.Maui.Responsive.Samples.ViewModels"
+             xmlns:r="clr-namespace:My.Maui.Responsive;assembly=My.Maui.Responsive"
              x:Class="My.Maui.Responsive.Samples.Pages.MixAndMatchPage"
              BackgroundColor="{DynamicResource SecondaryColor}"
              BindingContext="{x:Static vm:ViewModelLocator.LandingPage}"
              Title="Mix and match">
 
     <ScrollView>
+        <r:Container>
+            <r:Row>
+                <VerticalStackLayout
+                    r:Row.ColumnSpan="12,6,4,4,4">
+                    <Label>Testing</Label>
+                    <Entry />
 
+                </VerticalStackLayout>
+
+                <VerticalStackLayout
+                    r:Row.ColumnSpan="12,6,4,4,4">
+                    <Label>Testing</Label>
+                    <Entry />
+
+                </VerticalStackLayout>
+            </r:Row>
+        </r:Container>
+        
     </ScrollView>
 </ContentPage>
