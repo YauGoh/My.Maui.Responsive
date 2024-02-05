@@ -5,17 +5,21 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
   package:
     runs-on: [windows-latest]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Fetch tags
+      - name: Workflow details
         run: |
-          git fetch --prune --unshallow --tags
+          echo "Event name: ${{ github.event_name }}"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup Gitversion
         uses: gittools/actions/gitversion/setup@v0
@@ -32,6 +36,7 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Build
+        if: github.event_name == 'push'
         run: |
           dotnet build `
             --configuration Release `
@@ -40,14 +45,16 @@ jobs:
         shell: pwsh
 
       - name: Pack
+        if: github.event_name == 'push'
         shell: pwsh
         run: |
           dotnet pack .\src\My.Maui.Responsive\ `
             --output .\output\ `
             --configuration Release `
-            /p:Version=${{ steps.gitversion.outputs.fullSemVer }}
+            /p:Version=${{ steps.gitversion.outputs.majorMinorPatch }}
 
       - name: Upload to nuget
+        if: github.event_name == 'push'
         shell: pwsh
         run: |
           dotnet nuget push .\output\*.nupkg `
