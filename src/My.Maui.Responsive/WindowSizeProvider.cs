@@ -24,5 +24,5 @@ class CurrentApplicationMainPageWindowSizeProvider : IWindowSizeProvider
 
     public event EventHandler<Size>? SizeChanged;
 
-    public Size Get() => Application.Current!.MainPage!.ContainerArea.Size;
+    public Size Get() => new Size(Application.Current!.MainPage!.Window!.Width, Application.Current!.MainPage!.Window!.Height);
 }
