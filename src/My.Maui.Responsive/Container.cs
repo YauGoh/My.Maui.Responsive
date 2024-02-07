@@ -8,7 +8,7 @@ namespace My.Maui.Responsive;
 public class Container : Layout, IContainerLayout
 {
     public IEnumerable<IView> GetOrderedVisibleRows() => Children
-        .Where(_ => _.Visibility == Visibility.Visible)
+        .Where(_ => _.IsVisible())
         .OrderBy(_ => _.GetOrder());
 
     protected override ILayoutManager CreateLayoutManager() => new ContainerLayoutManager(this);

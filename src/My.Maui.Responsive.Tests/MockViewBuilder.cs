@@ -20,7 +20,7 @@ internal abstract class MockView : BindableObject, IView
 
     public abstract bool IsEnabled { get; }
 
-    public abstract Visibility Visibility { get; }
+    public abstract Microsoft.Maui.Visibility Visibility { get; }
 
     public abstract double Opacity { get; }
 

@@ -12,7 +12,7 @@ public partial class Row : Layout, IRowLayout
     public int Columns { get => (int)GetValue(ColumnsProperty); set => SetValue(ColumnsProperty, value); }
 
     public IEnumerable<IView> GetOrderedVisibleElements() => Children
-        .Where(_ => _.Visibility == Visibility.Visible)
+        .Where(_ => _.IsVisible())
         .OrderBy(_ => _.GetOrder());
 
     protected override ILayoutManager CreateLayoutManager() => new RowLayoutManager(this);
