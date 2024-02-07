@@ -34,6 +34,6 @@ public class MyMauiTestBase
     {
         SetWindowSize(size);
 
-        _mockWindowSizeProvider.Raise(provider => provider.SizeChanged += (_, _) => { }, EventArgs.Empty);
+        _mockWindowSizeProvider.Raise(provider => provider.SizeChanged += (_, _) => { }, _mockWindowSizeProvider.Object, size);
     }
 }

@@ -31,7 +31,9 @@ internal class ContainerLayoutManager : LayoutManager
 
         var y = _layout.Padding.Top;
 
-        foreach (var row in _layout.GetOrderedVisibleRows())
+        var visibleRows = _layout.GetOrderedVisibleRows();
+
+        foreach (var row in visibleRows)
         {
             var rowSize = row.Measure(widthConstraint - _layout.Padding.HorizontalThickness, double.PositiveInfinity);
 

@@ -16,7 +16,10 @@ internal static class ViewExtensions
         return columnSpan == default;
     }
 
+    internal static bool IsVisible(this IView view) => view.Visibility == Microsoft.Maui.Visibility.Visible || view.Visibility == Microsoft.Maui.Visibility.Hidden;
+
     internal static int GetOrder(this IView view) => Row.GetOrder((BindableObject)view).Current;
 
     internal static int GetOffset(this IView view) => Row.GetOffset((BindableObject)view).Current;
+
 }

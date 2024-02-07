@@ -19,7 +19,7 @@ class CurrentApplicationMainPageWindowSizeProvider : IWindowSizeProvider
     {
         if (Application.Current == null) return;
 
-        Application.Current.MainPage!.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
+        Application.Current.MainPage.Window.SizeChanged += (sender, args) => SizeChanged?.Invoke(this, Get());
     }
 
     public event EventHandler<Size>? SizeChanged;

@@ -7,7 +7,7 @@
              BindingContext="{x:Static vm:ViewModelLocator.LandingPage}"
              Title="Mix and match">
 
-    <ScrollView>
+    <ScrollView Background="White">
         <r:Container>
             <r:Row>
                 <VerticalStackLayout
@@ -23,6 +23,80 @@
                     <Entry />
 
                 </VerticalStackLayout>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Xs="true" />
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Xs
+                    </Label.FormattedText>
+                </Label>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Sm="true" />    
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Sm
+                    </Label.FormattedText>
+                </Label>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Md="true" />
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Md
+                    </Label.FormattedText>
+                </Label>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Lg="true" />
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Lg
+                    </Label.FormattedText>
+                </Label>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Xl="true" />
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Xl
+                    </Label.FormattedText>
+                </Label>
+
+                <Label r:Row.ColumnSpan="12">
+                    <Label.IsVisible>
+                        <r:OnViewSize
+                            x:TypeArguments="x:Boolean"
+                            Default="false"
+                            Xxl="true" />
+                    </Label.IsVisible>
+                    <Label.FormattedText>
+                        On visibled for Xxl
+                    </Label.FormattedText>
+                </Label>
+
+
             </r:Row>
         </r:Container>
         

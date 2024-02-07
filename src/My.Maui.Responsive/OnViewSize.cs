@@ -2,6 +2,8 @@
 
 namespace My.Maui.Responsive;
 
+#pragma warning disable CS8601 // Possible null reference assignment.
+
 public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChanged
 {
     private T? _xs;
@@ -23,10 +25,15 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
     private bool _xxlSet;
 
 
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public OnViewSize()
     {
         IWindowSizeProvider.Instance.SizeChanged += WindowSizeChangeEmitter_WindowSizeChanged;
+
+        Default = default;
     }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
     ~OnViewSize()
     {
@@ -38,9 +45,9 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
     }
 
-    public T? Value => this;
+    public T Value => this;
 
-    public T? Default { get; set; }
+    public T Default { get; set; }
 
     public T? Xs
     {
@@ -48,7 +55,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _xs = value;
-            _xsSet = true;
+            _xsSet = WasSet(value);
         }
     }
 
@@ -58,7 +65,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _sm = value;
-            _smSet = true;
+            _smSet = WasSet(value);
         }
     }
 
@@ -68,7 +75,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _md = value;
-            _mdSet = true;
+            _mdSet = WasSet(value);
         }
     }
 
@@ -78,7 +85,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _lg = value;
-            _lgSet = true;
+            _lgSet = WasSet(value);
         }
     }
 
@@ -88,7 +95,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _xl = value;
-            _xlSet = true;
+            _xlSet = WasSet(value);
         }
     }
 
@@ -98,7 +105,7 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         set
         {
             _xxl = value;
-            _xxlSet = true;
+            _xxlSet = WasSet(value);
         }
     }
 
@@ -116,14 +123,18 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
         return ((IMarkupExtension<BindingBase>)this).ProvideValue(serviceProvider);
     }
 
-    public static implicit operator T?(OnViewSize<T> onViewSize)
+
+#pragma warning disable CS8603 // Possible null reference return.
+    public static implicit operator T(OnViewSize<T> onViewSize)
     {
         var deviceSize = IDeviceSizeProvider.Instance.Get();
 
         switch (deviceSize)
         {
             case DeviceSize.XSmall:
+
                 return onViewSize._xsSet ? onViewSize.Xs : onViewSize.Default;
+
 
             case DeviceSize.Small:
                 return onViewSize._smSet ? onViewSize.Sm : onViewSize.Default;
@@ -143,4 +154,13 @@ public class OnViewSize<T> : IMarkupExtension<BindingBase>, INotifyPropertyChang
 
         return onViewSize.Default;
     }
+#pragma warning restore CS8603 // Possible null reference return.
+
+    private static bool WasSet(T? value)
+    {
+        return value != null;
+    }
 }
+
+
+#pragma warning restore CS8601 // Possible null reference assignment.
